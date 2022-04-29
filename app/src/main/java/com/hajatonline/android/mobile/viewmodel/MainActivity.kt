@@ -9,14 +9,17 @@ import com.hajatonline.android.mobile.viewmodel.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var viewModel : MainActivityView
+    private lateinit var viewModelFactory: MainActivityViewModelFactory
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        viewModelFactory = MainActivityViewModelFactory(125)
         viewModel = ViewModelProvider(this).get(MainActivityView::class.java)
-        binding.txtCount.text = viewModel.getCurrentCount().toString()
+        binding.txtCount.text = viewModel.getTotal().toString()
 
         binding.buttonAddCount.setOnClickListener {
-            binding.txtCount.text = viewModel.getUpdatedCount().toString()
+            viewModel.setTotal(binding.etCount.text.toString().toInt())
+            binding.txtCount.text = viewModel.getTotal().toString()
         }
     }
 }

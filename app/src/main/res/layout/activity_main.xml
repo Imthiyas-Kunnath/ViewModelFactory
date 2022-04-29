@@ -3,12 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <EditText
+            android:layout_marginTop="50dp"
+            android:hint="Enter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_count"/>
         <TextView
+            android:layout_marginTop="50dp"
             android:id="@+id/txt_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,12 +27,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:layout_marginTop="50dp"
             android:id="@+id/button_addCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Add"
             tools:layout_editor_absoluteX="158dp"
             tools:layout_editor_absoluteY="456dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 </layout>

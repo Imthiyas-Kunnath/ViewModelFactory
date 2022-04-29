@@ -2,15 +2,19 @@ package com.hajatonline.android.mobile.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class MainActivityView : ViewModel() {
-    private var count = 0
+class MainActivityView(startingTotal : Int) : ViewModel() {
+    private var total = 0
 
-    fun getCurrentCount():Int{
-        return count
+    init {
+        total = startingTotal
+    }
+    fun getTotal():Int{
+        return total
     }
 
-    fun getUpdatedCount():Int{
-        return count++;
+    fun setTotal(input:Int){
+        total+=input;
     }
+
 
 }
